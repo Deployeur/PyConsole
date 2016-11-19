@@ -11,8 +11,7 @@ class Application:
 		self.name = name
 		self.version = version
 
-	def add(self, command: 'Command'):
-		raise InvalidCommand if !isinstance(command, Command)
+	def add(self, command):
 		self.commands.append(command)
 
 	def run(self):
@@ -21,4 +20,13 @@ class Application:
 			welcome_message += '\n-- Info table here --'
 			return print(welcome_message)
 		else:
-			return print(sys.argv)
+			self.process(sys.argv)
+
+	def process(self, argv):
+		try:
+			opts, args = getopt.getopt(argv[1:], 'v')
+		except getopt.GetoptError as err:
+			print(err)
+			sys.exit(2)
+		print(opts)
+		print(args)
