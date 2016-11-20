@@ -8,15 +8,15 @@ This package was inspired by Symfony's Console Component.
 
 Run this command and you're set:
 
-```
-pip3 install pyconsole
+```bash
+$ pip3 install pyconsole
 ```
 
 ## Usage
 
 Create a base file (we'll name it `exec.py` in this case) that will serve as the **executable** and then do the following:
 
-```
+```python
 from pyconsole.application import Application
 from commands.open_chrome_command import OpenChromeCommand  # Import your commands up here
 
@@ -32,7 +32,7 @@ application.run()
 
 And a sample command class:
 
-```
+```python
 from pyconsole.command import Command
 
 
@@ -49,7 +49,7 @@ class OpenChromeCommand(Command):
 
 And now execute the CLI app as follows:
 
-```
+```bash
 python3 exec.py open google.com --fill_fields "Finding Dory"
 ```
 
