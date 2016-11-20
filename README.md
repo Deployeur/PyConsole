@@ -2,6 +2,8 @@
 
 This package simplifies the process of creating scalable CLI apps. Simply create command classes, attach them to the application object and you're set! For a quick CLI app, simply add an anonymous function to the `add`method.
 
+This package was inspired by Symfony's Console Component.
+
 ## Installation
 
 Run this command and you're set:
@@ -59,4 +61,4 @@ Coming soon...
 
 ## License
 
-This package is released under the [MIT License](http://google.com).
+This package is released under the [MIT License](https://github.com/dugajean/PyConsole/blob/master/LICENSE).
