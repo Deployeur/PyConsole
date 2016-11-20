@@ -1,45 +1,28 @@
-import sys
-import getopt
-import typing
+from argparse import ArgumentParser
+from pyconsole.command import Command
+from pyconsole.option import Option
 
 
 class Application:
-    name = 'My First CLI'
+    name = 'My CLI App'
     version = '1.0'
     commands = []
+    arg_parser = None
 
     def __init__(self, name, version):
         self.name = name
         self.version = version
+        self.arg_parser = ArgumentParser()
 
-    def add(self, command):
+        # Register default options
+        Option.add_default_options(parser=self.arg_parser)
+
+    def add(self, command: Command):
+        command.configure()
         self.commands.append(command)
 
     def run(self):
-        if len(sys.argv) == 1:
-            welcome_message = self.name + ' ' + self.version
-            welcome_message += '\n-- Info table here --'
-            return
-            print(welcome_message)
-        else:
-            self.process(sys.argv)
+        self.arg_parser.add_argument('action', help="display a square of a given number")
+        args = self.arg_parser.parse_args()
 
-    def configure_commands(self):
-        for command in self.commands:
-            command.configure()
-
-    def process(self, argv):
-        # Configure all commands
-        self.configure_commands()
-
-        print(self.commands[0].get_options())
-        return;
-
-        try:
-            opts, args = getopt.getopt(argv[1:], 'v')
-        except getopt.GetoptError as err:
-            print(err)
-            sys.exit(2)
-
-            # print(opts)
-            # print(args)
+        print(args)

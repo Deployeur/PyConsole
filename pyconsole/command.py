@@ -20,15 +20,15 @@ class Command:
         self.args.append(Argument(name, description, required))
         return self
 
-    def add_option(self, name, argv, required=False, description=None):
-        option = Option(name, argv, description, required)
+    def add_option(self, short_name, long_name, required=False, description=None):
+        option = Option(short_name, long_name, description, required)
         self.opts.append(option)
         return self
 
     def get_options(self):
-        options_list = []
+        options_list = {}
 
         for option in self.opts:
-            options_list.append(option.get_name() + ('=' if option.get_required() else ''))
+            options_list['-' + option.get_short_name()] = '--' + option.get_long_name()
 
         return options_list
