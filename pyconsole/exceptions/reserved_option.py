@@ -1,1 +1,1 @@
-class ReservedArgument(Exception): pass
+class ReservedOption(Exception): pass
