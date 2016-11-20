@@ -19,18 +19,6 @@ class Option:
         self.desc = desc
         self.required = required
 
-    def get_short_name(self):
-        return self.short_name
-
-    def get_long_name(self):
-        return self.long_name
-
-    def get_description(self):
-        return self.desc
-
-    def get_required(self):
-        return self.required
-
     @staticmethod
     def add_default_options(parser):
         group = parser.add_mutually_exclusive_group()

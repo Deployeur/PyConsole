@@ -3,7 +3,6 @@ from pyconsole.exceptions.reserved_argument import ReservedArgument
 
 class Argument:
     name = None
-    argv = None
     desc = None
     required = False
 
@@ -17,9 +16,3 @@ class Argument:
         self.name = name
         self.desc = desc
         self.required = required
-
-    def get_name(self):
-        return self.name
-
-    def get_description(self):
-        return self.desc

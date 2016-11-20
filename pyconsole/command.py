@@ -5,7 +5,7 @@ from pyconsole.option import Option
 class Command:
     name = None
     desc = None
-    args = []
+    argv = None
     opts = []
 
     def set_name(self, name):
@@ -17,7 +17,7 @@ class Command:
         return self
 
     def add_argument(self, name, required=False, description=None):
-        self.args.append(Argument(name, description, required))
+        self.argv = Argument(name, description, required)
         return self
 
     def add_option(self, short_name, long_name, required=False, description=None):
@@ -29,6 +29,6 @@ class Command:
         options_list = {}
 
         for option in self.opts:
-            options_list['-' + option.get_short_name()] = '--' + option.get_long_name()
+            options_list['-' + option.short_name] = '--' + option.long_name
 
         return options_list
