@@ -12,12 +12,11 @@ pip3 install pyconsole
 
 ## Usage
 
-Create a base file that will serve as the executable and then do the following:
+Create a base file (we'll name it `exec.py` in this case) that will serve as the **executable** and then do the following:
 
 ```
-
 from pyconsole.application import Application
-from commands.open_chrome_command import OpenChromeCommand  # Import your commands  # Import your commands  # Import your commands  # Import your commandsimport OpenChromeCommand
+from commands.open_chrome_command import OpenChromeCommand  # Import your commands up here
 
 # Init the application
 application = Application('Testing CLI', '2.1')
@@ -28,3 +27,36 @@ application.add(OpenChromeCommand())
 # Run the app!
 application.run()
 ```
+
+And a sample command class:
+
+```
+from pyconsole.command import Command
+
+
+class OpenChromeCommand(Command):
+    def configure(self):
+        self.set_name('Chrome Opener') \
+            .set_description('Manage a Chrome window.') \
+            .add_argument(name='open', description='Opens chrome up.') \
+            .add_option(short_name='ff', long_name='fill_fields', description="Fill the page's input(s)")
+
+    def execute(self, input, output):
+        pass # Whatever logic needed to fill the search field at Google's page (hint: Selenium)...
+```
+
+And now execute the CLI app as follows:
+
+```
+python3 exec.py open google.com --fill_fields "Finding Dory"
+```
+
+That's it!
+
+## Documentation
+
+Coming soon...
+
+## License
+
+This package is released under the [MIT License](http://google.com).
