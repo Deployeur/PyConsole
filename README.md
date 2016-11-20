@@ -8,7 +8,7 @@ This package was inspired by Symfony's Console Component.
 
 Run this command and you're set:
 
-```bash
+```
 $ pip3 install pyconsole
 ```
 
@@ -49,7 +49,7 @@ class OpenChromeCommand(Command):
 
 And now execute the CLI app as follows:
 
-```bash
+```
 python3 exec.py open google.com --fill_fields "Finding Dory"
 ```
 
