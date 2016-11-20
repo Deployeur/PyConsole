@@ -44,7 +44,7 @@ class OpenChromeCommand(Command):
             .add_option(short_name='ff', long_name='fill_fields', description="Fill the page's input(s)")
 
     def execute(self, input, output):
-        pass # Whatever logic needed to fill the search field at Google's page (hint: Selenium)...
+        pass # Whatever logic needed to open a Chrome window and fill the fields in the page (hint: Selenium)...
 ```
 
 And now execute the CLI app as follows:
