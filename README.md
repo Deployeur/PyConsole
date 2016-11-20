@@ -4,7 +4,7 @@ This package simplifies the process of creating scalable CLI apps. Simply create
 
 This package was inspired by Symfony's Console Component.
 
-## Installation
+# Installation
 
 Run this command and you're set:
 
@@ -12,7 +12,7 @@ Run this command and you're set:
 $ pip3 install pyconsole
 ```
 
-## Usage
+# Usage
 
 Create a base file (we'll name it `exec.py` in this case) that will serve as the **executable** and then do the following:
 
@@ -55,10 +55,10 @@ python3 exec.py open google.com --fill_fields "Finding Dory"
 
 That's it!
 
-## Documentation
+# Documentation
 
 Coming soon...
 
-## License
+# License
 
 This package is released under the [MIT License](https://github.com/dugajean/PyConsole/blob/master/LICENSE).
