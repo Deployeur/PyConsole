@@ -32,3 +32,7 @@ class Command:
             options_list['-' + option.short_name] = '--' + option.long_name
 
         return options_list
+
+    def parse_options(self, parser):
+        for option in self.opts:
+            parser.add_argument('-' + option.short_name, '--' + option.long_name, required=option.required, help=option.desc)

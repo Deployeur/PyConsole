@@ -8,7 +8,7 @@ class Option:
     required = False
 
     # List of reserved options
-    reserved_opts = {'v': 'verbose', 'n': 'no-interaction'}
+    reserved_opts = {'v': 'verbose', 'n': 'no_interaction'}
 
     def __init__(self, short_name, long_name, desc, required):
         if long_name in self.reserved_opts.values() or short_name in self.reserved_opts:
