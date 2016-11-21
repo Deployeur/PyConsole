@@ -10,4 +10,3 @@ class OpenChromeCommand(Command):
 
     def execute(self, input, output):
         goto_arg = input.get('goto')
-

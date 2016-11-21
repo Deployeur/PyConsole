@@ -18,7 +18,7 @@ class Application:
         # Register default options
         Option.add_default_options(self.arg_parser)
 
-    def add(self, command: Command):
+    def add(self, command):
         command.configure()
         self.commands.append(command)
 
