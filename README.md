@@ -30,7 +30,7 @@ application.add(OpenChromeCommand())
 application.run()
 ```
 
-And a sample command class:
+And an example `command` class:
 
 ```python
 from pyconsole.command import Command
