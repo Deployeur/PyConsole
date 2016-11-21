@@ -1,7 +1,7 @@
 from argparse import ArgumentParser
-from pyconsole.command import Command
-from pyconsole.input import Input
-from pyconsole.option import Option
+from pyconsole.input.input import Input
+from pyconsole.input.input_option import Option
+from pyconsole.output.output import Output
 
 
 class Application:
@@ -31,15 +31,15 @@ class Application:
         return commands_list
 
     def set_options(self):
-        for command in self.commands:
-            command.parse_options(self.arg_parser)
+        self.commands[0].parse_options(self.arg_parser)
 
     def run(self):
         self.arg_parser.add_argument('action', metavar='action', choices=self.commands_list())
-        self.arg_parser.add_argument('value')
+        self.arg_parser.add_argument('value', default=None)
         self.set_options()
 
         input = Input(vars(self.arg_parser.parse_args())).args
+        output = Output(input)
 
         for command in self.commands:
-            command.execute(input, None)
+            command.execute(input, output)

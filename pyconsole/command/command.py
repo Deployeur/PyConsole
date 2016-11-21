@@ -1,5 +1,5 @@
-from pyconsole.argument import Argument
-from pyconsole.option import Option
+from pyconsole.input.input_argument import Argument
+from pyconsole.input.input_option import Option
 
 
 class Command:

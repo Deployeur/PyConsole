@@ -1,4 +1,4 @@
-from pyconsole.option import Option
+from pyconsole.input.input_option import Option
 
 
 class Input:

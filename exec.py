@@ -7,7 +7,7 @@ from commands.open_chrome_command import OpenChromeCommand
 application = Application('Testing CLI', '2.1')
 
 # Add the commands
-# application.add(OpenChromeCommand())
+application.add(OpenChromeCommand())
 application.add(PullCommand())
 
 # Run the app!
