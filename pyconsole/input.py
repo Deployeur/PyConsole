@@ -18,5 +18,5 @@ class Input:
             if k in Option.reserved_opts.values():
                 del self.args[k]
 
-    def get_input(self, key):
+    def get(self, key):
         return self.args[key]

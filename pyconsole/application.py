@@ -41,7 +41,5 @@ class Application:
 
         input = Input(vars(self.arg_parser.parse_args())).args
 
-        print(input)
-
         for command in self.commands:
             command.execute(input, None)

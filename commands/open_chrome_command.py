@@ -9,4 +9,5 @@ class OpenChromeCommand(Command):
             .add_option(short_name='gt', long_name='goto', description='Which page should we go to...')
 
     def execute(self, input, output):
-        pass
+        goto_arg = input.get('goto')
+

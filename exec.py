@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/local/bin/python3
 
 from pyconsole.application import Application
 from commands.open_chrome_command import OpenChromeCommand
