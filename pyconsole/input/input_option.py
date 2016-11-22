@@ -6,11 +6,12 @@ class Option:
     long_name = None
     desc = None
     required = False
+    default = False
 
     # List of reserved options
     reserved_opts = {'v': 'verbose', 'n': 'no_interaction'}
 
-    def __init__(self, short_name, long_name, desc, required):
+    def __init__(self, short_name, long_name, desc, required=False, default=False):
         if long_name in self.reserved_opts.values() or short_name in self.reserved_opts:
             raise ReservedOption()
 
@@ -18,6 +19,7 @@ class Option:
         self.long_name = long_name
         self.desc = desc
         self.required = required
+        self.default = default
 
     @staticmethod
     def add_default_options(parser):

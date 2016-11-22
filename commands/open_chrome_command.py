@@ -1,4 +1,4 @@
-from pyconsole.command import Command
+from pyconsole.command.command import Command
 
 
 class OpenChromeCommand(Command):

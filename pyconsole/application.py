@@ -1,45 +1,30 @@
-from argparse import ArgumentParser
+from pyconsole.command.command_parser import CommandParser
 from pyconsole.input.input import Input
 from pyconsole.input.input_option import Option
 from pyconsole.output.output import Output
 
 
 class Application:
-    name = 'My CLI App'
-    version = '1.0'
-    commands = []
-    arg_parser = None
+    name = 'My First Application'
+    version = '0.1'
+    parser = None
 
     def __init__(self, name=None, version=None):
         self.name = name
         self.version = version
-        self.arg_parser = ArgumentParser(description=self.name + ' ' + self.version)
+        self.parser = CommandParser()
 
         # Register default options
-        Option.add_default_options(self.arg_parser)
+        # Option.add_default_options(self.parser)
 
     def add(self, command):
         command.configure()
-        self.commands.append(command)
-
-    def commands_list(self):
-        commands_list = []
-
-        for command in self.commands:
-            commands_list.append(command.argv.name)
-
-        return commands_list
-
-    def set_options(self):
-        self.commands[0].parse_options(self.arg_parser)
+        self.parser.add(command)
 
     def run(self):
-        self.arg_parser.add_argument('action', metavar='action', choices=self.commands_list())
-        self.arg_parser.add_argument('value', default=None)
-        self.set_options()
+        pass
+        # input = Input()
+        # output = Output(input)
 
-        input = Input(vars(self.arg_parser.parse_args())).args
-        output = Output(input)
-
-        for command in self.commands:
-            command.execute(input, output)
+        # for command in self.commands:
+        #     command.execute(input, output)
