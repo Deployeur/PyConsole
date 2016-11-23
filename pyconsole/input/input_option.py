@@ -2,13 +2,6 @@ from pyconsole.exceptions.reserved_option import ReservedOption
 
 
 class Option:
-    short_name = None
-    long_name = None
-    desc = None
-    required = False
-    default = False
-
-    # List of reserved options
     reserved_opts = {'v': 'verbose', 'n': 'no_interaction'}
 
     def __init__(self, short_name, long_name, desc, required=False, default=False):
@@ -26,3 +19,6 @@ class Option:
         group = parser.add_mutually_exclusive_group()
         for short, long in Option.reserved_opts.items():
             group.add_argument('-' + short, '--' + long, action='store_true')
+
+    def __repr__(self):
+        return self.long_name

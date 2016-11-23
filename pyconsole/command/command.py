@@ -3,10 +3,11 @@ from pyconsole.input.input_option import Option
 
 
 class Command:
-    name = None
-    desc = None
-    argv = None
-    opts = []
+    def __init__(self):
+        self.name = None
+        self.desc = None
+        self.argv = None
+        self.opts = []
 
     def set_name(self, name):
         self.name = name
@@ -16,12 +17,12 @@ class Command:
         self.desc = desc
         return self
 
-    def add_argument(self, name, required=False, description=None):
-        self.argv = Argument(name, description, required)
+    def add_argument(self, name, required=False, description=None, default=False):
+        self.argv = Argument(name, description, required, default)
         return self
 
-    def add_option(self, short_name, long_name, required=False, description=None):
-        option = Option(short_name, long_name, description, required)
+    def add_option(self, short_name, long_name, required=False, description=None, default=False):
+        option = Option(short_name, long_name, description, required, default)
         self.opts.append(option)
         return self
 
